@@ -1,5 +1,5 @@
 {
-  "name": "sit725-t3-prac2",
+  "name": "sit725-t3-prac3",
   "version": "1.0.0",
   "description": "SIT725 Practicals",
   "main": "server.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/San9023/SIT725-T3-prac2.git"
+    "url": "git+https://github.com/San9023/SIT725-T3-Prac-3"
   },
   "keywords": [
     "Express",
@@ -17,9 +17,9 @@
   "author": "San",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/San9023/SIT725-T3-prac2/issues"
+    "url": "https://github.com/San9023/SIT725-T3-Prac-3/issues"
   },
-  "homepage": "https://github.com/San9023/SIT725-T3-prac2#readme",
+  "homepage": "https://github.com/San9023/SIT725-T3-Prac-3#readme",
   "dependencies": {
     "express": "^4.18.2"
   }
