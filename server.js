@@ -27,7 +27,8 @@ const getProjects = (callback) => {
 }
 
 const createCollection = (collectionName) => {
-   client.connect((err,db) => {
+  
+    client.connect((err,db) => {
        projectCollection = client.db().collection(collectionName);
          if(!err) {
           console.log('MongoDB Connected')
@@ -60,10 +61,23 @@ const cardList = [
 }
 
 ]
-//post api
+app.post ('/api/projects',(req,res) => {
+     console.log("New Project added", req.body)
+     var newProject = req.body;
+     insertProjects(newProject,(err,result) => {
+     if(err) {
+     res.json({statusCode: 400, message: err})
+    }
+     else {
+      res.json({statusCode: 200, message:"Project Successfully added", data: result})
+     }
+     })
+    })
+    
+
 app.get('/api/projects',(req,res) => {
   getProjects((err,result) => {
-    console.log(res.json.statusCode);
+   
        if(err) {
           res.json({statusCode: 400, message: err})
       }
