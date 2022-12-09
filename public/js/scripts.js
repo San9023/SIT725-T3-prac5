@@ -1,30 +1,57 @@
 
-const cardList= [
-    {
-    title:"WebDevoloper",
-    image:"images/web devp.gif",
-    link:"Discription",
-    desciption:"The design and development of websites is the responsibility of a    web developer. By ensuring that sites look beautiful, function well, and provide simple access points without loading problems between pages or error messages, the make sure that sites live up to user expectations."
-    },
-    {
-    title:"CSS",
-    image:"images/web3.gif",
-    link:"Cascading Style Sheets",
-    desciption:"CSS is the language for describing the presentation of Web pages, including colors, layout, and fonts."
-    }
-    ]
- const clickMe= () =>{
+// const cardList= [
+//  {
+//     title:"WebDevoloper",
+//     image:"images/web2.gif",
+//     link:"Discription",
+//     desciption:"The design and development of websites is the responsibility of a    web developer. By ensuring that sites look beautiful, function well, and provide simple access points without loading problems between pages or error messages, the make sure that sites live up to user expectations."
+//  },
+//    {
+//     title:"CSS",
+//     image:"images/web3.gif",
+//     link:"Cascading Style Sheets",
+//     desciption:"CSS is the language for describing the presentation of Web pages, including colors, layout, and fonts."
+//    }
+//  ]
+const clickMe= () =>{
     alert("Thanks for clicking me. Hope you have a nice day!")
     }
- const submitForm= () =>{
-    let formData= {};
-    formData.first_name= $('#first_name').val();
-    formData.last_name= $('#last_name').val();
-    formData.password= $('#password').val();
-    formData.email= $('#email').val();
-    console.log("Form Data Submitted: ", formData);
-    alert("Details Verified")
-    }
+const getProjects = () => {
+       $.get('/api/projects',(response) => {
+       if(response.statusCode==200){
+       addCards(response.data);
+}
+})
+}
+const submitForm = () => {
+   let formData = {};
+   formData.title = $('#title').val();
+   formData.image = $('#image').val();
+   formData.link = $('#link').val();
+   formData.description = $('#description').val();
+   
+   console.log("Form Data Submitted: ", formData);
+   addProjectToApp(formData);
+   
+}
+
+//ajax function...​
+
+const addProjectToApp = (project) => {
+   $.ajax({
+       url: '/api/projects',
+       data: project,
+       type: 'POST',
+       success: (result) => {
+           alert(result.message);
+           location.reload(); // it automatically reloads the page ​
+
+       }
+   })
+}
+
+
+
  const addCards= (items) =>{
     items.forEach(item=>{
     let itemToAppend= '<div class="col s4 center-align">'+
@@ -44,7 +71,7 @@ $(document).ready(function(){
     $('#formSubmit').click(()=>{
     submitForm();
     })
-addCards(cardList);
-$('.modal').modal();
+    getProjects();
+ $('.modal').modal();
     });
     
