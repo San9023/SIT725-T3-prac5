@@ -46,16 +46,16 @@ const createCollection = (collectionName) => {
 
 const cardList = [
 {
-     title:"Kitten 2",
+     title:"web 1",
      image:"images/finger.png",
-     link: "About Kitten 2",
+     link: "About Web 1",
       desciption: "Demo desciption about kitten 2"
 
  },
 {
-        title: "Kitten 3",
+        title: "web 2",
         image: "images/kitten-3.jpg",
-        link: "About Kitten 3",
+        link: "About Web 2",
         desciption: "Demo desciption about kitten 3"
 
 }
@@ -98,7 +98,7 @@ var port = process.env.port || 3000;
 
 app.listen(port,()=>{
     console.log("App listening to http://localhost:"+port)
-    createCollection("pets")
+    createCollection("DEV")
 })
 
 
